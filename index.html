@@ -12,14 +12,12 @@
     --sage: #7FC8A9;
     --sage-light: #b3dfc9;
     --terracotta: #E76F51;
-    --terracotta-dark: #c45a3e;
     --cream: #F4F1DE;
-    --cream-dark: #ebe7cc;
+    --cream-dark: #e8e4c8;
     --ink: #1a1816;
     --stone: #5a5550;
     --muted: #8a8480;
     --white: #ffffff;
-    --card-bg: rgba(255,255,255,0.85);
     --shadow: 0 2px 16px rgba(42,157,143,0.10);
     --radius: 14px;
   }
@@ -34,7 +32,6 @@
     padding-bottom: 60px;
   }
 
-  /* HEADER */
   header {
     background: var(--teal);
     padding: 48px 40px 36px;
@@ -44,19 +41,19 @@
   header::after {
     content: '';
     position: absolute;
-    bottom: -30px; right: -40px;
-    width: 220px; height: 220px;
+    bottom: -40px; right: -40px;
+    width: 240px; height: 240px;
     border-radius: 50%;
-    background: rgba(127,200,169,0.18);
+    background: rgba(127,200,169,0.15);
     pointer-events: none;
   }
   header::before {
     content: '';
     position: absolute;
-    top: -50px; left: -30px;
-    width: 180px; height: 180px;
+    top: -60px; left: -30px;
+    width: 200px; height: 200px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.05);
     pointer-events: none;
   }
   .header-label {
@@ -81,7 +78,6 @@
     font-weight: 300;
   }
 
-  /* OVERALL PROGRESS */
   .overall-progress-section {
     background: var(--white);
     margin: 0 24px;
@@ -96,35 +92,18 @@
     align-items: center;
     margin-bottom: 10px;
   }
-  .overall-label span {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--stone);
-    letter-spacing: 0.04em;
-  }
-  .overall-label strong {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--terracotta);
-  }
-  .progress-track {
-    background: var(--cream-dark);
-    border-radius: 100px;
-    height: 10px;
-    overflow: hidden;
-  }
+  .overall-label span { font-size: 13px; font-weight: 500; color: var(--stone); letter-spacing: 0.04em; }
+  .overall-label strong { font-size: 20px; font-weight: 600; color: var(--terracotta); }
+  .progress-track { background: var(--cream-dark); border-radius: 100px; height: 10px; overflow: hidden; }
   .progress-fill {
-    height: 100%;
-    border-radius: 100px;
+    height: 100%; border-radius: 100px;
     background: linear-gradient(90deg, var(--terracotta), #f4945a);
     transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
     width: 0%;
   }
 
-  /* MAIN LAYOUT */
   main { padding: 0 24px; }
 
-  /* SECTION LABELS */
   .section-label {
     font-size: 11px;
     letter-spacing: 0.13em;
@@ -136,190 +115,125 @@
     padding-left: 2px;
   }
 
-  /* MILESTONE CARDS */
   .milestones-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 14px;
     margin-bottom: 8px;
   }
-  @media (max-width: 700px) {
-    .milestones-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 700px) { .milestones-grid { grid-template-columns: 1fr; } }
 
   .milestone-card {
-    background: var(--card-bg);
+    background: var(--white);
     border-radius: var(--radius);
     padding: 22px 20px 18px;
     box-shadow: var(--shadow);
     border-top: 3px solid var(--teal);
-    transition: box-shadow 0.2s;
     position: relative;
     overflow: hidden;
   }
   .milestone-card.complete {
     border-top-color: var(--sage);
-    background: rgba(127,200,169,0.10);
+    background: rgba(127,200,169,0.08);
   }
   .milestone-num {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 6px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 5px;
+  }
+  .milestone-card.complete .milestone-num { color: var(--sage); }
+
+  .milestone-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; background: var(--cream);
+    color: var(--stone); border-radius: 100px; padding: 3px 9px; margin-bottom: 10px;
   }
   .milestone-title {
     font-family: 'DM Serif Display', serif;
-    font-size: 16px;
-    color: var(--ink);
-    margin-bottom: 4px;
-    line-height: 1.3;
+    font-size: 15px; color: var(--ink); margin-bottom: 6px; line-height: 1.35;
   }
-  .milestone-date {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 14px;
+  .milestone-desc {
+    font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.55;
   }
-  .m-progress-track {
-    background: var(--cream-dark);
-    border-radius: 100px;
-    height: 6px;
-    overflow: hidden;
-    margin-bottom: 6px;
-  }
+  .m-progress-track { background: var(--cream-dark); border-radius: 100px; height: 6px; overflow: hidden; margin-bottom: 6px; }
   .m-progress-fill {
-    height: 100%;
-    border-radius: 100px;
+    height: 100%; border-radius: 100px;
     background: linear-gradient(90deg, var(--teal), var(--sage));
     transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
     width: 0%;
   }
-  .m-progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: var(--muted);
-  }
+  .m-progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+
   .celebrate-msg {
     display: none;
-    margin-top: 10px;
-    font-size: 12px;
-    color: var(--teal-dark);
-    font-weight: 500;
-    background: rgba(127,200,169,0.2);
-    border-radius: 8px;
-    padding: 8px 10px;
+    margin-top: 10px; font-size: 12px; color: var(--teal-dark); font-weight: 500;
+    background: rgba(127,200,169,0.2); border-radius: 8px; padding: 8px 10px; line-height: 1.5;
   }
   .milestone-card.complete .celebrate-msg { display: block; }
-  .milestone-card.complete .milestone-num { color: var(--sage); }
 
-  /* WEEK SECTIONS */
   .week-block {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    margin-bottom: 14px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
+    background: var(--white); border-radius: var(--radius);
+    margin-bottom: 14px; box-shadow: var(--shadow); overflow: hidden;
   }
   .week-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 22px 14px;
-    cursor: pointer;
-    user-select: none;
-    border-bottom: 1px solid var(--cream-dark);
-    transition: background 0.15s;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 22px 14px; cursor: pointer; user-select: none;
+    border-bottom: 1px solid var(--cream-dark); transition: background 0.15s;
   }
   .week-header:hover { background: rgba(42,157,143,0.04); }
-  .week-header-left h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 2px;
-  }
-  .week-header-left span {
-    font-size: 12px;
-    color: var(--muted);
-  }
+  .week-header-left h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .week-header-left span { font-size: 12px; color: var(--muted); }
   .week-badge {
-    background: var(--teal);
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 100px;
-    white-space: nowrap;
+    background: var(--teal); color: white;
+    font-size: 11px; font-weight: 600; padding: 4px 10px;
+    border-radius: 100px; white-space: nowrap; flex-shrink: 0;
   }
   .week-badge.done { background: var(--sage); }
+  .week-tasks { padding: 8px 22px 14px; }
 
-  .week-tasks {
-    padding: 8px 22px 14px;
-  }
-
-  /* TASKS */
   .task-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: opacity 0.2s;
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+    cursor: pointer; transition: opacity 0.2s;
   }
   .task-item:last-child { border-bottom: none; }
-  .task-item:hover { opacity: 0.85; }
+  .task-item:hover { opacity: 0.82; }
 
   .task-check {
-    width: 20px;
-    height: 20px;
-    border-radius: 6px;
-    border: 2px solid var(--sage);
-    flex-shrink: 0;
-    margin-top: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.18s, border-color 0.18s;
-    background: transparent;
+    width: 20px; height: 20px; border-radius: 6px;
+    border: 2px solid var(--sage); flex-shrink: 0; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.18s, border-color 0.18s; background: transparent;
   }
-  .task-item.done .task-check {
-    background: var(--teal);
-    border-color: var(--teal);
-  }
-  .task-check svg {
-    opacity: 0;
-    transition: opacity 0.18s;
-  }
+  .task-item.done .task-check { background: var(--teal); border-color: var(--teal); }
+  .task-check svg { opacity: 0; transition: opacity 0.18s; }
   .task-item.done .task-check svg { opacity: 1; }
 
   .task-text {
-    font-size: 14px;
-    color: var(--ink);
-    line-height: 1.5;
-    transition: color 0.18s, text-decoration 0.18s;
-    padding-top: 1px;
+    font-size: 14px; color: var(--ink); line-height: 1.5;
+    transition: color 0.18s; padding-top: 1px; flex: 1;
   }
-  .task-item.done .task-text {
-    color: var(--muted);
-    text-decoration: line-through;
-  }
+  .task-item.done .task-text { color: var(--muted); text-decoration: line-through; }
 
-  /* FOOTER */
+  .task-pill {
+    flex-shrink: 0; margin-top: 3px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 100px; padding: 2px 7px;
+  }
+  .task-pill.m1 { background: rgba(42,157,143,0.12); color: var(--teal-dark); }
+  .task-pill.m2 { background: rgba(231,111,81,0.12); color: var(--terracotta); }
+  .task-pill.m3 { background: rgba(127,200,169,0.2); color: #3a7a5e; }
+
   footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 12px;
-    padding: 32px 24px 0;
-    letter-spacing: 0.04em;
+    text-align: center; color: var(--muted); font-size: 12px;
+    padding: 32px 24px 0; letter-spacing: 0.04em;
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-label">AI for Business Bootcamp · Freelancer Track · 2026</div>
+  <div class="header-label">TechNative Academy · AI for Business Bootcamp · Freelancer Track · 2026</div>
   <h1>90-Day Action Plan</h1>
   <p>Michele Archer Bookkeeping &nbsp;·&nbsp; Starting 16 March 2026</p>
 </header>
@@ -329,41 +243,42 @@
     <span>Overall Progress</span>
     <strong id="overallPct">0%</strong>
   </div>
-  <div class="progress-track">
-    <div class="progress-fill" id="overallBar"></div>
-  </div>
+  <div class="progress-track"><div class="progress-fill" id="overallBar"></div></div>
 </div>
 
 <main>
 
-  <p class="section-label">🎯 Milestones</p>
+  <p class="section-label">🎯 Programme Milestones</p>
   <div class="milestones-grid">
 
     <div class="milestone-card" id="m1">
       <div class="milestone-num">Milestone 1</div>
-      <div class="milestone-title">Complete Capstone Submission</div>
-      <div class="milestone-date">Target: 22 March 2026</div>
+      <div class="milestone-tag">Assessment 1 · Weeks 4–6</div>
+      <div class="milestone-title">Project 1: Marketing Plan</div>
+      <div class="milestone-desc">Submit your assessed marketing plan. Evidence of commercial thinking and your ability to reach clients.</div>
       <div class="m-progress-track"><div class="m-progress-fill" id="m1bar"></div></div>
-      <div class="m-progress-label"><span>Progress</span><span id="m1pct">0%</span></div>
-      <div class="celebrate-msg">✅ Capstone submitted. Your business is real now.</div>
+      <div class="m-progress-label"><span>Tasks complete</span><span id="m1pct">0%</span></div>
+      <div class="celebrate-msg">✅ Assessment 1 submitted. Marketing plan complete.</div>
     </div>
 
     <div class="milestone-card" id="m2">
       <div class="milestone-num">Milestone 2</div>
-      <div class="milestone-title">LinkedIn Profile Live and Active</div>
-      <div class="milestone-date">Target: 12 April 2026</div>
+      <div class="milestone-tag">Assessment 2 · By Week 12</div>
+      <div class="milestone-title">Bootcamp Completion: Capstone Submitted</div>
+      <div class="milestone-desc">Full Capstone package submitted including business plan — your evidence of a plan to acquire freelance work. Required to complete the bootcamp.</div>
       <div class="m-progress-track"><div class="m-progress-fill" id="m2bar"></div></div>
-      <div class="m-progress-label"><span>Progress</span><span id="m2pct">0%</span></div>
-      <div class="celebrate-msg">✅ You're visible. Clients can find you now.</div>
+      <div class="m-progress-label"><span>Tasks complete</span><span id="m2pct">0%</span></div>
+      <div class="celebrate-msg">✅ Capstone submitted. Bootcamp complete. Business plan evidenced.</div>
     </div>
 
     <div class="milestone-card" id="m3">
       <div class="milestone-num">Milestone 3</div>
-      <div class="milestone-title">Secure First New Client</div>
-      <div class="milestone-date">Target: 14 June 2026</div>
+      <div class="milestone-tag">Post-bootcamp · Within 6 months</div>
+      <div class="milestone-title">Paid Freelance Work Secured</div>
+      <div class="milestone-desc">Evidence of paid freelance work or a signed contract. Your TechNative final progression outcome — tracked after the bootcamp ends.</div>
       <div class="m-progress-track"><div class="m-progress-fill" id="m3bar"></div></div>
-      <div class="m-progress-label"><span>Progress</span><span id="m3pct">0%</span></div>
-      <div class="celebrate-msg">✅ First client secured. Michele Archer Bookkeeping is open for business.</div>
+      <div class="m-progress-label"><span>Tasks complete</span><span id="m3pct">0%</span></div>
+      <div class="celebrate-msg">✅ Paid work secured. Michele Archer Bookkeeping is officially open for business.</div>
     </div>
 
   </div>
@@ -374,27 +289,31 @@
   <div class="week-block">
     <div class="week-header" onclick="toggleWeek('w1')">
       <div class="week-header-left">
-        <h3>Week 1 &nbsp;·&nbsp; Capstone &amp; Launch Prep</h3>
+        <h3>Week 1 &nbsp;·&nbsp; Capstone Submission &amp; Launch Prep</h3>
         <span>16 – 22 March 2026</span>
       </div>
       <div class="week-badge" id="w1badge">0 / 4</div>
     </div>
     <div class="week-tasks" id="w1tasks">
-      <div class="task-item" data-week="w1" data-milestone="m1" onclick="toggleTask(this)">
+      <div class="task-item" data-week="w1" data-milestone="m2" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Submit Capstone to Google Classroom</span>
-      </div>
-      <div class="task-item" data-week="w1" data-milestone="m1" onclick="toggleTask(this)">
-        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Confirm Replit link is working and shareable</span>
+        <span class="task-pill m2">M2</span>
       </div>
       <div class="task-item" data-week="w1" data-milestone="m2" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Confirm Replit tracker link is working and shareable</span>
+        <span class="task-pill m2">M2</span>
+      </div>
+      <div class="task-item" data-week="w1" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Finalise LinkedIn headline and summary copy</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w1" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Set up Michele Archer Bookkeeping business email</span>
+        <span class="task-pill m3">M3</span>
       </div>
     </div>
   </div>
@@ -409,21 +328,25 @@
       <div class="week-badge" id="w2badge">0 / 4</div>
     </div>
     <div class="week-tasks" id="w2tasks">
-      <div class="task-item" data-week="w2" data-milestone="m2" onclick="toggleTask(this)">
+      <div class="task-item" data-week="w2" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Publish LinkedIn profile (open to work, niche clear)</span>
+        <span class="task-text">Publish LinkedIn profile live (open to work, niche clear)</span>
+        <span class="task-pill m3">M3</span>
       </div>
-      <div class="task-item" data-week="w2" data-milestone="m2" onclick="toggleTask(this)">
+      <div class="task-item" data-week="w2" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Write and post first LinkedIn article (MTD and landlords)</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w2" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Identify 10 target accountancy practices for referral outreach</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w2" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Research local landlord networking events in London</span>
+        <span class="task-text">Research landlord networking events in London</span>
+        <span class="task-pill m3">M3</span>
       </div>
     </div>
   </div>
@@ -441,18 +364,22 @@
       <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Send introductory emails to 5 accountant contacts</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Attend one landlord or property investor networking event</span>
-      </div>
-      <div class="task-item" data-week="w3" data-milestone="m2" onclick="toggleTask(this)">
-        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Post second LinkedIn article</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Follow up on any accountant outreach from Week 3</span>
+        <span class="task-text">Post second LinkedIn article</span>
+        <span class="task-pill m3">M3</span>
+      </div>
+      <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Follow up on accountant outreach from Week 3</span>
+        <span class="task-pill m3">M3</span>
       </div>
     </div>
   </div>
@@ -469,19 +396,23 @@
     <div class="week-tasks" id="w4tasks">
       <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Send referral partnership proposal to 3 accountancy practices</span>
+        <span class="task-text">Send referral partnership proposals to 3 accountancy practices</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Attend second networking event</span>
+        <span class="task-pill m3">M3</span>
       </div>
-      <div class="task-item" data-week="w4" data-milestone="m2" onclick="toggleTask(this)">
+      <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Post two more LinkedIn articles</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Get at least 3 discovery calls booked</span>
+        <span class="task-pill m3">M3</span>
       </div>
     </div>
   </div>
@@ -490,7 +421,7 @@
   <div class="week-block">
     <div class="week-header" onclick="toggleWeek('w5')">
       <div class="week-header-left">
-        <h3>Month 3 &nbsp;·&nbsp; Convert</h3>
+        <h3>Month 3 &nbsp;·&nbsp; Convert to Paid Work</h3>
         <span>12 May – 14 June 2026</span>
       </div>
       <div class="week-badge" id="w5badge">0 / 4</div>
@@ -499,35 +430,37 @@
       <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Convert at least one discovery call to a paying client</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Finalise onboarding process and client welcome pack</span>
+        <span class="task-text">Finalise client onboarding process and welcome pack</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <span class="task-text">Review 90-day plan and set goals for next quarter</span>
+        <span class="task-pill m3">M3</span>
       </div>
       <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
         <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="task-text">Celebrate 🎉</span>
+        <span class="task-text">Notify TechNative LSM of paid work secured (progression evidence) 🎉</span>
+        <span class="task-pill m3">M3</span>
       </div>
     </div>
   </div>
 
 </main>
 
-<footer>Michele Archer Bookkeeping &nbsp;·&nbsp; AI for Business Bootcamp &nbsp;·&nbsp; 2026</footer>
+<footer>Michele Archer Bookkeeping &nbsp;·&nbsp; TechNative AI for Business Bootcamp &nbsp;·&nbsp; 2026</footer>
 
 <script>
-  // Milestone task mapping
   const milestoneMap = {
     m1: { total: 0, done: 0 },
     m2: { total: 0, done: 0 },
     m3: { total: 0, done: 0 }
   };
 
-  // Count tasks per milestone on load
   document.querySelectorAll('.task-item[data-milestone]').forEach(task => {
     const m = task.dataset.milestone;
     if (milestoneMap[m]) milestoneMap[m].total++;
@@ -544,27 +477,22 @@
   }
 
   function update() {
-    // Reset milestone counts
     Object.keys(milestoneMap).forEach(k => { milestoneMap[k].done = 0; });
-
     const allTasks = document.querySelectorAll('.task-item');
     let totalDone = 0;
 
     allTasks.forEach(task => {
       const m = task.dataset.milestone;
-      const week = task.dataset.week;
       if (task.classList.contains('done')) {
         totalDone++;
         if (m && milestoneMap[m]) milestoneMap[m].done++;
       }
     });
 
-    // Overall bar
     const pct = Math.round((totalDone / allTasks.length) * 100);
     document.getElementById('overallBar').style.width = pct + '%';
     document.getElementById('overallPct').textContent = pct + '%';
 
-    // Milestone bars
     ['m1','m2','m3'].forEach(m => {
       const { total, done } = milestoneMap[m];
       const mpct = total ? Math.round((done / total) * 100) : 0;
@@ -575,7 +503,6 @@
       else card.classList.remove('complete');
     });
 
-    // Week badges
     ['w1','w2','w3','w4','w5'].forEach(w => {
       const weekTasks = document.querySelectorAll(`.task-item[data-week="${w}"]`);
       const weekDone = [...weekTasks].filter(t => t.classList.contains('done')).length;
