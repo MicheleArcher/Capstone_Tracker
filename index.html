@@ -1,861 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michele Archer: Freelance Business Builder</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0f2340;
-    --navy-mid: #1a3a5c;
-    --navy-light: #234d7a;
-    --gold: #c9a84c;
-    --gold-light: #e8c96a;
-    --gold-pale: #f5e9c8;
-    --white: #ffffff;
-    --off-white: #f8f6f1;
-    --text-light: #8fa3bb;
-    --success: #2ecc71;
-    --danger: #e74c3c;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    min-height: 100vh;
-    background-image: 
-      radial-gradient(ellipse at 20% 0%, rgba(201,168,76,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 100%, rgba(35,77,122,0.4) 0%, transparent 50%);
-  }
-
-  /* HEADER */
-  .header {
-    border-bottom: 1px solid rgba(201,168,76,0.3);
-    padding: 28px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(15,35,64,0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .header-left h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--white);
-    letter-spacing: -0.02em;
-  }
-
-  .header-left h1 span {
-    color: var(--gold);
-  }
-
-  .header-left p {
-    font-size: 0.78rem;
-    color: var(--text-light);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-top: 3px;
-  }
-
-  .week-badge {
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: var(--navy);
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-align: center;
-  }
-
-  .week-badge span {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 400;
-    margin-top: 2px;
-    opacity: 0.8;
-  }
-
-  /* MAIN LAYOUT */
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 36px 40px;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
-  }
-
-  .grid-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
-  }
-
-  /* CARDS */
-  .card {
-    background: rgba(26,58,92,0.5);
-    border: 1px solid rgba(201,168,76,0.15);
-    border-radius: 8px;
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-  }
-
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .card-title .icon { font-size: 1rem; }
-
-  /* MILESTONE CARDS */
-  .milestone-card {
-    background: rgba(15,35,64,0.7);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 8px;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s;
-  }
-
-  .milestone-card.complete {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.08);
-  }
-
-  .milestone-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
-  }
-
-  .milestone-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  .milestone-title {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    margin-top: 2px;
-  }
-
-  .milestone-status {
-    font-size: 1.4rem;
-    transition: transform 0.3s;
-  }
-
-  .milestone-card.complete .milestone-status {
-    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  @keyframes popIn {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
-  }
-
-  .progress-bar-wrap {
-    background: rgba(255,255,255,0.08);
-    border-radius: 100px;
-    height: 6px;
-    margin: 10px 0 8px;
-    overflow: hidden;
-  }
-
-  .progress-bar-fill {
-    height: 100%;
-    border-radius: 100px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 0%;
-  }
-
-  .progress-text {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .progress-text strong { color: var(--gold); }
-
-  /* CELEBRATION */
-  .celebration {
-    display: none;
-    background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
-    border: 1px solid var(--gold);
-    border-radius: 6px;
-    padding: 12px 16px;
-    margin-top: 12px;
-    text-align: center;
-    animation: slideDown 0.4s ease;
-  }
-
-  .celebration.show { display: block; }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .celebration p {
-    font-size: 0.85rem;
-    color: var(--gold-light);
-    font-weight: 500;
-  }
-
-  .celebration .big-tick {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 4px;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
-  }
-
-  /* CAPSTONE COMPONENTS */
-  .component-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    gap: 12px;
-  }
-
-  .component-item:last-child { border-bottom: none; }
-
-  .component-name {
-    font-size: 0.88rem;
-    font-weight: 500;
-    flex: 1;
-  }
-
-  .status-select {
-    background: rgba(15,35,64,0.8);
-    border: 1px solid rgba(201,168,76,0.25);
-    color: var(--white);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.78rem;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .status-select:focus { border-color: var(--gold); }
-  .status-select option { background: var(--navy); }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--text-light);
-    flex-shrink: 0;
-    transition: background 0.3s;
-  }
-
-  .status-dot.todo { background: var(--text-light); }
-  .status-dot.inprogress { background: var(--gold); }
-  .status-dot.done { background: var(--success); }
-
-  /* TASK SECTION */
-  .task-form {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr 1fr auto;
-    gap: 10px;
-    margin-bottom: 20px;
-    align-items: end;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 0.72rem;
-    color: var(--text-light);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .form-input, .form-select {
-    width: 100%;
-    background: rgba(15,35,64,0.8);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--white);
-    padding: 10px 14px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .form-input:focus, .form-select:focus { border-color: var(--gold); }
-  .form-input::placeholder { color: rgba(255,255,255,0.3); }
-  .form-select option { background: var(--navy); }
-
-  input[type="date"].form-input::-webkit-calendar-picker-indicator {
-    filter: invert(0.6);
-    cursor: pointer;
-  }
-
-  .btn-add {
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: var(--navy);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: opacity 0.2s, transform 0.1s;
-  }
-
-  .btn-add:hover { opacity: 0.9; transform: translateY(-1px); }
-  .btn-add:active { transform: translateY(0); }
-
-  /* TASK LIST */
-  .task-list { display: flex; flex-direction: column; gap: 8px; }
-
-  .task-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    background: rgba(15,35,64,0.6);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 6px;
-    transition: all 0.3s;
-    animation: fadeIn 0.3s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .task-item.done-task {
-    opacity: 0.6;
-    border-color: rgba(46,204,113,0.2);
-  }
-
-  .task-item.done-task .task-name {
-    text-decoration: line-through;
-    color: var(--text-light);
-  }
-
-  .task-checkbox {
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(201,168,76,0.4);
-    border-radius: 3px;
-    cursor: pointer;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    background: transparent;
-  }
-
-  .task-checkbox:hover { border-color: var(--gold); }
-  .task-checkbox.checked {
-    background: var(--success);
-    border-color: var(--success);
-  }
-
-  .task-checkbox.checked::after {
-    content: '✓';
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-  }
-
-  .task-name {
-    flex: 1;
-    font-size: 0.88rem;
-    font-weight: 500;
-  }
-
-  .task-meta {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .task-component-tag {
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--gold-light);
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 0.72rem;
-    font-weight: 500;
-  }
-
-  .task-date {
-    font-size: 0.75rem;
-    color: var(--text-light);
-  }
-
-  .task-date.overdue { color: var(--danger); }
-
-  .task-status-select {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--text-light);
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .task-status-select option { background: var(--navy); }
-
-  .btn-delete {
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.2);
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 2px 6px;
-    border-radius: 3px;
-    transition: color 0.2s, background 0.2s;
-  }
-
-  .btn-delete:hover { color: var(--danger); background: rgba(231,76,60,0.1); }
-
-  .empty-state {
-    text-align: center;
-    padding: 30px;
-    color: var(--text-light);
-    font-size: 0.85rem;
-    border: 1px dashed rgba(255,255,255,0.1);
-    border-radius: 6px;
-  }
-
-  /* SECTION LABEL */
-  .section-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--white);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(201,168,76,0.15);
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 24px;
-    color: rgba(255,255,255,0.2);
-    font-size: 0.75rem;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    margin-top: 20px;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .container { padding: 20px; }
-    .header { padding: 16px 20px; flex-direction: column; gap: 12px; }
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .task-form { grid-template-columns: 1fr 1fr; }
-    .task-form .form-group:first-child { grid-column: 1 / -1; }
-    .task-form .btn-add { grid-column: 1 / -1; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michele Archer – MTD Compliance Marketing Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:    #2A9D8F;
+            --secondary:  #7FC8A9;
+            --accent:     #E76F51;
+            --bg:         #F4F1DE;
+            --white:      #ffffff;
+            --text:       #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border:     #d8d4c0;
+            --light-teal: rgba(42,157,143,0.08);
+            --light-accent: rgba(231,111,81,0.10);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 70px 60px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; right: -40px;
+            width: 220px; height: 220px;
+            border-radius: 50%;
+            background: rgba(127,200,169,0.18);
+        }
+        header .label {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-bottom: 14px;
+        }
+        header h1 {
+            font-size: 52px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        header .strapline {
+            font-style: italic;
+            font-size: 22px;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 28px;
+        }
+        header .meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.08em;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 2px solid var(--primary);
+            padding: 14px 60px;
+            z-index: 100;
+            overflow-x: auto;
+        }
+        nav ul { display: flex; gap: 32px; list-style: none; white-space: nowrap; }
+        nav a {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+
+        /* ── MAIN ── */
+        main { max-width: 1100px; margin: 0 auto; padding: 60px 60px 80px; }
+
+        /* ── SECTION ── */
+        section { margin-bottom: 72px; }
+        .section-header {
+            margin-bottom: 36px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--primary);
+        }
+        .section-label {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .section-header h2 {
+            font-size: 34px;
+            font-weight: 400;
+            color: var(--primary);
+        }
+        .section-header p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+
+        /* ── VALUE PROPOSITION HERO ── */
+        .value-prop {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 48px 52px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .value-prop::before {
+            content: '"';
+            position: absolute;
+            top: -20px; left: 30px;
+            font-size: 200px;
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(255,255,255,0.07);
+            line-height: 1;
+        }
+        .value-prop p {
+            font-size: 26px;
+            font-style: italic;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+        .value-prop .attribution {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-top: 20px;
+        }
+
+        /* ── INTENT BLOCK ── */
+        .intent-block {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            padding: 32px 36px;
+            margin-bottom: 36px;
+        }
+        .intent-block h3 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .intent-block p { font-size: 17px; line-height: 1.75; }
+
+        /* ── 7PS GRID ── */
+        .ps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .ps-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px 32px;
+            transition: box-shadow 0.2s;
+        }
+        .ps-card:hover { box-shadow: 0 4px 20px rgba(42,157,143,0.12); }
+        .ps-card .p-label {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .ps-card h3 {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+        .ps-card p { font-size: 16px; line-height: 1.7; color: var(--text); }
+        .ps-card ul { padding-left: 18px; margin-top: 10px; }
+        .ps-card li { font-size: 15px; line-height: 1.7; margin-bottom: 4px; }
+
+        /* ── MESSAGING VERSIONS ── */
+        .messaging-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 8px;
+        }
+        .message-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--primary);
+            border-radius: 6px;
+            padding: 24px 26px;
+        }
+        .message-card.accent-top { border-top-color: var(--accent); }
+        .message-card.secondary-top { border-top-color: var(--secondary); }
+        .message-card .msg-label {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .message-card h4 { font-size: 18px; font-weight: 500; color: var(--primary); margin-bottom: 10px; }
+        .message-card p { font-size: 15px; line-height: 1.65; }
+
+        /* ── BUDGET TABLE ── */
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        .budget-table thead { background: var(--primary); color: var(--white); }
+        .budget-table th {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 16px 20px;
+            text-align: left;
+        }
+        .budget-table td {
+            padding: 16px 20px;
+            font-size: 15px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .budget-table tr:last-child td { border-bottom: none; }
+        .budget-table tr:nth-child(even) td { background: var(--light-teal); }
+        .budget-table .amount {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        .budget-table .pct {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .budget-total {
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 24px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .budget-total span {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .budget-total strong {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 22px;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+        .timeline-item {
+            display: flex;
+            gap: 28px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 44px;
+            bottom: -20px;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .timeline-content {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 22px 28px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .timeline-content h4 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .timeline-content p { font-size: 15px; line-height: 1.7; }
+        .timeline-content ul { padding-left: 18px; margin-top: 8px; }
+        .timeline-content li { font-size: 15px; line-height: 1.7; margin-bottom: 4px; }
+
+        /* ── SUCCESS METRICS ── */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .metric-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px 24px;
+            text-align: center;
+        }
+        .metric-card .metric-value {
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .metric-card .metric-label {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .metric-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* ── CALLOUT ── */
+        .callout {
+            background: var(--light-accent);
+            border: 1px solid rgba(231,111,81,0.25);
+            border-left: 4px solid var(--accent);
+            border-radius: 6px;
+            padding: 24px 28px;
+            margin-top: 28px;
+        }
+        .callout h4 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .callout p { font-size: 15px; line-height: 1.7; }
+
+        /* ── ETHICS BLOCK ── */
+        .ethics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .ethics-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 26px 28px;
+        }
+        .ethics-card h4 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .ethics-card p { font-size: 15px; line-height: 1.7; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 50px 60px;
+            text-align: center;
+        }
+        footer h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        footer p {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 12px;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.08em;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .ps-grid, .messaging-grid, .metrics-grid, .ethics-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            header, main { padding: 36px 24px; }
+            nav { padding: 12px 24px; }
+            header h1 { font-size: 36px; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="header-left">
-    <h1>Michele Archer: <span>Freelance Business Builder</span></h1>
-    <p>AI for Business Bootcamp &nbsp;·&nbsp; Capstone Tracker</p>
-  </div>
-  <div class="week-badge">
-    Week <span id="currentWeek">9</span> of 12
-    <span id="weekDue">Tracker App Due</span>
-  </div>
+<!-- HEADER -->
+<header>
+    <div class="label">90-Day Marketing Plan &nbsp;·&nbsp; Freelance Track &nbsp;·&nbsp; 2026</div>
+    <h1>Michele Archer</h1>
+    <p class="strapline">Getting businesses MTD-ready, seamlessly.</p>
+    <p class="meta">MTD Compliance Support Specialist &nbsp;·&nbsp; Sussex &amp; UK-Wide &nbsp;·&nbsp; February 2026</p>
 </header>
 
-<div class="container">
+<!-- NAV -->
+<nav>
+    <ul>
+        <li><a href="#intent">Intent</a></li>
+        <li><a href="#framework">Framework</a></li>
+        <li><a href="#seven-ps">The 7Ps</a></li>
+        <li><a href="#messaging">Messaging</a></li>
+        <li><a href="#budget">Budget</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#metrics">Success Metrics</a></li>
+        <li><a href="#ethics">Ethics</a></li>
+    </ul>
+</nav>
 
-  <!-- MILESTONES -->
-  <p class="section-label">🏆 Milestones</p>
-  <div class="grid-3" id="milestonesGrid">
+<main>
 
-    <div class="milestone-card" id="m1card">
-      <div class="milestone-header">
-        <div>
-          <div class="milestone-label">M1</div>
-          <div class="milestone-title">Complete the Bootcamp</div>
+    <!-- INTENT -->
+    <section id="intent">
+        <div class="section-header">
+            <div class="section-label">Plan Foundation</div>
+            <h2>Intent &amp; Context</h2>
+            <p>What this plan is for and why now</p>
         </div>
-        <div class="milestone-status" id="m1status">⏳</div>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="m1bar"></div>
-      </div>
-      <div class="progress-text">
-        <span>Progress</span>
-        <strong id="m1pct">0%</strong>
-      </div>
-      <div class="celebration" id="m1celebrate">
-        <span class="big-tick">✅</span>
-        <p>Congratulations! Bootcamp complete. You did it!</p>
-      </div>
-    </div>
 
-    <div class="milestone-card" id="m2card">
-      <div class="milestone-header">
-        <div>
-          <div class="milestone-label">M2</div>
-          <div class="milestone-title">Submit Full Capstone</div>
+        <div class="value-prop">
+            <p>Your clients get MTD compliant. You get your time back while I plan, organise and coordinate the compliance setup process from start to finish.</p>
+            <div class="attribution">Core Value Proposition — Michele Archer</div>
         </div>
-        <div class="milestone-status" id="m2status">⏳</div>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="m2bar"></div>
-      </div>
-      <div class="progress-text">
-        <span>Progress</span>
-        <strong id="m2pct">0%</strong>
-      </div>
-      <div class="celebration" id="m2celebrate">
-        <span class="big-tick">✅</span>
-        <p>Outstanding! Capstone submitted. Your business is real now.</p>
-      </div>
-    </div>
 
-    <div class="milestone-card" id="m3card">
-      <div class="milestone-header">
-        <div>
-          <div class="milestone-label">M3</div>
-          <div class="milestone-title">Secure First Client</div>
+        <div class="intent-block">
+            <h3>Plan Intent</h3>
+            <p>This is a 90-day lead generation marketing plan for a freelance MTD compliance support service targeting small accountancy practices, initially in Sussex with a view to scaling UK-wide. The plan is time-sensitive, with HMRC's MTD for sole traders deadline of April 2026 creating genuine urgency for accountancy practices with non-compliant clients. The goal is to convert one warm contact into a confirmed paid engagement within 45–60 days, while moving a second contact into active conversation. Longer-term visibility will be built through organic LinkedIn outreach and local networking.</p>
         </div>
-        <div class="milestone-status" id="m3status">⏳</div>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="m3bar"></div>
-      </div>
-      <div class="progress-text">
-        <span>Progress</span>
-        <strong id="m3pct">0%</strong>
-      </div>
-      <div class="celebration" id="m3celebrate">
-        <span class="big-tick">✅</span>
-        <p>Yes! First client secured. Michele Archer Bookkeeping is open for business!</p>
-      </div>
-    </div>
 
-  </div>
+        <div class="callout">
+            <h4>Why Now</h4>
+            <p>HMRC's Making Tax Digital rollout creates a hard compliance deadline for sole traders. Accountancy practices face the challenge of managing this for their clients without the internal resource to do it profitably. This plan positions Michele Archer as the specialist who removes that burden entirely, allowing practices to protect client relationships without diverting fee-generating capacity.</p>
+        </div>
+    </section>
 
-  <!-- CAPSTONE COMPONENTS -->
-  <p class="section-label">📋 Capstone Components</p>
-  <div class="grid-2" style="margin-bottom:24px;">
-    <div class="card">
-      <div class="card-title"><span class="icon">📄</span> Core Documents</div>
-      <div id="coreComponents"></div>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">⭐</span> Supporting Components</div>
-      <div id="supportComponents"></div>
-    </div>
-  </div>
+    <!-- FRAMEWORK -->
+    <section id="framework">
+        <div class="section-header">
+            <div class="section-label">Strategic Approach</div>
+            <h2>Framework Selection</h2>
+            <p>Why the 7Ps and what was considered</p>
+        </div>
 
-  <!-- TASK LIST -->
-  <p class="section-label">✅ Tasks</p>
-  <div class="card">
-    <div class="task-form">
-      <div class="form-group">
-        <label>Task Name</label>
-        <input type="text" class="form-input" id="taskName" placeholder="e.g. Write executive summary...">
-      </div>
-      <div class="form-group">
-        <label>Capstone Component</label>
-        <select class="form-select" id="taskComponent">
-          <option value="">Select component...</option>
-          <option>Business Plan</option>
-          <option>Marketing Plan</option>
-          <option>90-Day Action Plan</option>
-          <option>Tracker App</option>
-          <option>Capstone Schedule</option>
-          <option>Process &amp; Reflection</option>
-          <option>General / Bootcamp</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Deadline</label>
-        <input type="date" class="form-input" id="taskDate">
-      </div>
-      <button class="btn-add" onclick="addTask()">+ Add Task</button>
-    </div>
+        <div class="intent-block">
+            <h3>Selected Framework: The 7Ps Marketing Mix</h3>
+            <p>The 7Ps framework was selected as the most appropriate structure for this plan. As a service business, the extended marketing mix (Product, Price, Place, Promotion, People, Process, Physical Evidence) captures both the strategic and operational dimensions of the offer. It is broad enough to be comprehensive without being so complex that it produces shallow coverage across too many areas.</p>
+        </div>
 
-    <div id="taskList" class="task-list">
-      <div class="empty-state">No tasks yet. Add your first task above.</div>
-    </div>
-  </div>
+        <div class="ps-grid">
+            <div class="ps-card">
+                <div class="p-label">Considered but rejected</div>
+                <h3>STP Model</h3>
+                <p>Useful for audience definition but limited to segmentation and positioning. Does not address service delivery elements, which are a key part of the competitive advantage in a hands-on compliance support role.</p>
+            </div>
+            <div class="ps-card">
+                <div class="p-label">Considered but rejected</div>
+                <h3>SOSTAC</h3>
+                <p>A comprehensive planning framework well suited to larger campaigns. Too extensive for a focused 90-day plan with a restricted budget. The risk of producing shallow work across too many areas outweighed the benefit of its structure.</p>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- 7PS -->
+    <section id="seven-ps">
+        <div class="section-header">
+            <div class="section-label">Marketing Mix</div>
+            <h2>The 7Ps</h2>
+            <p>How the service is positioned and delivered across all dimensions</p>
+        </div>
 
-<div class="footer">Michele Archer · AI for Business Bootcamp · Freelancer Track · 2026</div>
+        <div class="ps-grid">
 
-<script>
-  // ── DATA ──────────────────────────────────────────────────────────────────
-  const coreComponents = [
-    'Business Plan',
-    'Marketing Plan',
-    '90-Day Action Plan',
-    'Process & Reflection'
-  ];
+            <div class="ps-card">
+                <div class="p-label">P1</div>
+                <h3>Product</h3>
+                <p>A freelance MTD compliance coordination service for accountancy practices. The service covers planning, organising, and coordinating the MTD setup process for sole trader clients on behalf of the practice. The accountant retains oversight while Michele manages the end-to-end compliance journey, freeing the practice from the administrative burden without losing control of the client relationship.</p>
+            </div>
 
-  const supportComponents = [
-    'Tracker App',
-    'Capstone Schedule'
-  ];
+            <div class="ps-card">
+                <div class="p-label">P2</div>
+                <h3>Price</h3>
+                <p>Pricing will be structured as a per-client engagement fee or a monthly retained arrangement depending on the volume of clients a practice needs to process. Specific pricing will be developed in discussion with the first confirmed client to ensure it reflects genuine value and is commercially viable for both parties. The pricing model will be positioned as a cost-effective alternative to the practice absorbing the time burden internally.</p>
+            </div>
 
-  let componentStatus = {};
-  [...coreComponents, ...supportComponents].forEach(c => componentStatus[c] = 'todo');
+            <div class="ps-card">
+                <div class="p-label">P3</div>
+                <h3>Place</h3>
+                <p>Primary channels for the 90-day period are:</p>
+                <ul>
+                    <li>Direct outreach to two warm Sussex-based contacts</li>
+                    <li>LinkedIn outreach targeting accountancy practices in Sussex and beyond</li>
+                    <li>Local professional networking events in Sussex</li>
+                    <li>Organic LinkedIn content to build broader UK visibility</li>
+                </ul>
+            </div>
 
-  let tasks = [];
-  let taskIdCounter = 0;
+            <div class="ps-card">
+                <div class="p-label">P4</div>
+                <h3>Promotion</h3>
+                <p>Three distinct messaging approaches aligned to audience temperature (see Messaging section). Promotion is entirely organic and relationship-led within the 90-day plan, supported by a small LinkedIn investment. Content strategy uses MTD deadline awareness as a natural hook, positioning Michele as an informed, reliable specialist rather than a salesperson.</p>
+            </div>
 
-  // ── WEEK DISPLAY ──────────────────────────────────────────────────────────
-  const weekDues = {
-    1: 'Bootcamp Introduction',
-    2: 'Digital Tools Overview',
-    3: 'AI Foundations',
-    4: 'Assessment 1 Prep',
-    5: 'Assessment 1 Due',
-    6: 'Business Clarity',
-    7: 'Business Plan Work',
-    8: 'Marketing Plan Work',
-    9: 'Tracker App Due',
-    10: 'Assessment 2 Prep',
-    11: 'Exit Review Prep',
-    12: 'Final Submission'
-  };
+            <div class="ps-card">
+                <div class="p-label">P5</div>
+                <h3>People</h3>
+                <p>Michele Archer brings a background in organisation, coordination, and reliable execution. Her operating style — plan-first, steady consistent delivery — directly mirrors the reassurance an accountant needs when handing off a compliance process. The service is personal, relationship-led, and built on trust rather than scale.</p>
+            </div>
 
-  let currentWeek = 9;
+            <div class="ps-card">
+                <div class="p-label">P6</div>
+                <h3>Process</h3>
+                <p>The handoff process will be clearly defined for each practice engagement, covering how client information is received, how progress is communicated, and how completion is confirmed. A clear process reduces the perceived risk for the accountant and demonstrates professionalism from the first conversation. The process will be documented and refined after the first client engagement.</p>
+            </div>
 
-  function setWeek(w) {
-    currentWeek = Math.min(12, Math.max(1, w));
-    document.getElementById('currentWeek').textContent = currentWeek;
-    document.getElementById('weekDue').textContent = weekDues[currentWeek] || '';
-  }
+        </div>
 
-  // Click week badge to change week
-  document.querySelector('.week-badge').style.cursor = 'pointer';
-  document.querySelector('.week-badge').title = 'Click to update week';
-  document.querySelector('.week-badge').addEventListener('click', () => {
-    const w = prompt('Enter current week (1-12):', currentWeek);
-    if (w && !isNaN(w)) setWeek(parseInt(w));
-  });
+        <!-- P7 full width -->
+        <div class="ps-card" style="margin-top: 24px;">
+            <div class="p-label">P7</div>
+            <h3>Physical Evidence</h3>
+            <p>In a service business, physical evidence is what reassures a prospective client that you are credible before they have direct experience of your work. For this plan, physical evidence comprises: an optimised LinkedIn profile clearly communicating the MTD compliance specialism; this marketing plan as a demonstration of structured thinking and professionalism; and, once the first engagement is complete, a brief case study or testimonial to support further outreach. The personal brand page serves as a digital anchor for all outreach activity.</p>
+        </div>
 
-  // ── RENDER COMPONENTS ─────────────────────────────────────────────────────
-  function renderComponents() {
-    renderComponentGroup('coreComponents', coreComponents);
-    renderComponentGroup('supportComponents', supportComponents);
-    updateMilestoneProgress();
-  }
+    </section>
 
-  function renderComponentGroup(containerId, list) {
-    const el = document.getElementById(containerId);
-    el.innerHTML = list.map(name => {
-      const status = componentStatus[name];
-      return `
-        <div class="component-item">
-          <div class="status-dot ${status === 'todo' ? 'todo' : status === 'inprogress' ? 'inprogress' : 'done'}"></div>
-          <span class="component-name">${name}</span>
-          <select class="status-select" onchange="updateComponent('${name}', this.value)">
-            <option value="todo" ${status==='todo'?'selected':''}>To Do</option>
-            <option value="inprogress" ${status==='inprogress'?'selected':''}>In Progress</option>
-            <option value="done" ${status==='done'?'selected':''}>Done</option>
-          </select>
-        </div>`;
-    }).join('');
-  }
+    <!-- MESSAGING -->
+    <section id="messaging">
+        <div class="section-header">
+            <div class="section-label">Communication Strategy</div>
+            <h2>Messaging Versions</h2>
+            <p>Three approaches aligned to audience temperature and MTD timeline relevance</p>
+        </div>
 
-  function updateComponent(name, value) {
-    componentStatus[name] = value;
-    renderComponents();
-  }
+        <div class="messaging-grid">
 
-  // ── MILESTONE PROGRESS ────────────────────────────────────────────────────
-  function updateMilestoneProgress() {
-    const allComponents = [...coreComponents, ...supportComponents];
-    const doneTasks = tasks.filter(t => t.status === 'done').length;
-    const totalTasks = tasks.length;
+            <div class="message-card accent-top">
+                <div class="msg-label">Version 1 — Warm Contacts</div>
+                <h4>Urgency-Led</h4>
+                <p>For the two existing warm contacts where a relationship already exists and the April 2026 deadline is immediately relevant. Messaging acknowledges the known challenge directly and moves quickly to a practical conversation about working together. Tone is confident and collegial, not salesy.</p>
+            </div>
 
-    // M1: bootcamp week progress
-    const m1pct = Math.round((currentWeek / 12) * 100);
-    setMilestone('m1', m1pct, currentWeek >= 12);
+            <div class="message-card">
+                <div class="msg-label">Version 2 — Cold Prospects, Near-Term</div>
+                <h4>Education-Led</h4>
+                <p>For accountancy practices not yet engaged but who have sole trader clients affected by the April 2026 deadline. Messaging leads with value and awareness rather than urgency pressure. Positions Michele as an informed specialist worth a conversation before the deadline crunch hits.</p>
+            </div>
 
-    // M2: capstone components
-    const doneComponents = allComponents.filter(c => componentStatus[c] === 'done').length;
-    const m2pct = allComponents.length ? Math.round((doneComponents / allComponents.length) * 100) : 0;
-    setMilestone('m2', m2pct, doneComponents === allComponents.length);
+            <div class="message-card secondary-top">
+                <div class="msg-label">Version 3 — Future Threshold Prospects</div>
+                <h4>Awareness-Led</h4>
+                <p>For practices whose clients fall under later MTD implementation thresholds. No immediate urgency but a clear opportunity to build visibility and plant seeds for future engagement. Content positions Michele as the go-to name for MTD compliance coordination when the next wave of deadlines becomes relevant.</p>
+            </div>
 
-    // M3: task completion proxy (treat as manual goal)
-    const m3pct = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
-    setMilestone('m3', m3pct, totalTasks > 0 && doneTasks === totalTasks && totalTasks >= 3);
-  }
+        </div>
 
-  function setMilestone(id, pct, complete) {
-    const bar = document.getElementById(id + 'bar');
-    const pctEl = document.getElementById(id + 'pct');
-    const statusEl = document.getElementById(id + 'status');
-    const card = document.getElementById(id + 'card');
-    const celebrate = document.getElementById(id + 'celebrate');
+        <div class="callout">
+            <h4>Bias Note</h4>
+            <p>Messaging has been deliberately designed to avoid assumptions about practice size, ownership profile, or geography. Outreach will include practices of varying scale and demographic profile, including female-led practices and larger firms with proportionally higher compliance burdens, not only the small independent practice profile that informed the initial plan.</p>
+        </div>
+    </section>
 
-    bar.style.width = pct + '%';
-    pctEl.textContent = pct + '%';
+    <!-- BUDGET -->
+    <section id="budget">
+        <div class="section-header">
+            <div class="section-label">Financial Planning</div>
+            <h2>Budget</h2>
+            <p>£300 total allocation over 90 days with reasoning for every decision</p>
+        </div>
 
-    if (complete) {
-      statusEl.textContent = '✅';
-      card.classList.add('complete');
-      celebrate.classList.add('show');
-    } else if (pct > 0) {
-      statusEl.textContent = '🔄';
-      card.classList.remove('complete');
-      celebrate.classList.remove('show');
-    } else {
-      statusEl.textContent = '⏳';
-      card.classList.remove('complete');
-      celebrate.classList.remove('show');
-    }
-  }
+        <table class="budget-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Allocation</th>
+                    <th>% of Budget</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>LinkedIn Premium (Sales Navigator Basic)</strong></td>
+                    <td class="amount">£90</td>
+                    <td class="pct">30%</td>
+                    <td>LinkedIn is where accountants and practice managers are professionally active. A one-month trial of Sales Navigator enables targeted outreach to practice owners and decision-makers beyond existing connections. The investment is deliberately limited to one month to test traction before committing further.</td>
+                </tr>
+                <tr>
+                    <td><strong>AI Platform Subscription</strong></td>
+                    <td class="amount">£60</td>
+                    <td class="pct">20%</td>
+                    <td>Two months of an AI platform subscription to support content drafting, outreach message refinement, and process documentation. AI assistance increases the quality and consistency of outputs without requiring additional time investment. Cost verified against current platform pricing.</td>
+                </tr>
+                <tr>
+                    <td><strong>Local Networking Events (Sussex)</strong></td>
+                    <td class="amount">£100</td>
+                    <td class="pct">33%</td>
+                    <td>Two to three local professional networking events in Sussex over the 90-day period. Face-to-face relationship building is the most direct route to converting warm contacts and establishing credibility with new prospects. Sussex proximity reduces travel cost. Specific events to be verified for relevance before booking.</td>
+                </tr>
+                <tr>
+                    <td><strong>Contingency Reserve</strong></td>
+                    <td class="amount">£50</td>
+                    <td class="pct">17%</td>
+                    <td>A small contingency held back for unexpected opportunities, such as a relevant event, a professional membership fee, or a printed one-pager for in-person meetings. Not committed in advance, deployed only if a clear opportunity arises.</td>
+                </tr>
+            </tbody>
+        </table>
 
-  // ── TASKS ─────────────────────────────────────────────────────────────────
-  function addTask() {
-    const name = document.getElementById('taskName').value.trim();
-    const component = document.getElementById('taskComponent').value;
-    const date = document.getElementById('taskDate').value;
+        <div class="budget-total">
+            <span>Total 90-Day Budget</span>
+            <strong>£300</strong>
+        </div>
 
-    if (!name) {
-      document.getElementById('taskName').focus();
-      document.getElementById('taskName').style.borderColor = 'var(--danger)';
-      setTimeout(() => document.getElementById('taskName').style.borderColor = '', 1500);
-      return;
-    }
+        <div class="callout" style="margin-top: 24px;">
+            <h4>Budget Rationale</h4>
+            <p>The budget reflects the reality of marketing an unvalidated service offer with restricted income. The priority is testing demand at low cost rather than committing significant spend before market response is understood. The largest single allocation (networking) reflects the judgment that relationship-led outreach will outperform digital advertising at this stage of the business. All figures have been verified against current pricing. Any AI-suggested costs were checked before inclusion.</p>
+        </div>
+    </section>
 
-    tasks.push({ id: taskIdCounter++, name, component, date, status: 'todo' });
-    document.getElementById('taskName').value = '';
-    document.getElementById('taskComponent').value = '';
-    document.getElementById('taskDate').value = '';
-    renderTasks();
-    updateMilestoneProgress();
-  }
+    <!-- TIMELINE -->
+    <section id="timeline">
+        <div class="section-header">
+            <div class="section-label">90-Day Action Plan</div>
+            <h2>Timeline</h2>
+            <p>Phased activity from February to May 2026</p>
+        </div>
 
-  document.getElementById('taskName').addEventListener('keydown', e => {
-    if (e.key === 'Enter') addTask();
-  });
+        <div class="timeline">
 
-  function renderTasks() {
-    const list = document.getElementById('taskList');
-    if (tasks.length === 0) {
-      list.innerHTML = '<div class="empty-state">No tasks yet. Add your first task above.</div>';
-      return;
-    }
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <div class="timeline-content">
+                    <h4>Days 1–14 — Foundation</h4>
+                    <p>Optimise LinkedIn profile to clearly communicate MTD compliance specialism. Draft outreach messages using Version 1 (urgency-led) for both warm contacts. Make direct contact with warmer lead and open a practical conversation about working together. Begin publishing organic LinkedIn content using MTD deadline awareness as the primary hook.</p>
+                </div>
+            </div>
 
-    list.innerHTML = tasks.map(t => {
-      const today = new Date().toISOString().split('T')[0];
-      const overdue = t.date && t.date < today && t.status !== 'done';
-      const isDone = t.status === 'done';
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <div class="timeline-content">
+                    <h4>Days 15–30 — Outreach</h4>
+                    <p>Follow up with warm contacts and progress conversations toward a discovery call or proposal. Activate LinkedIn Sales Navigator for targeted cold outreach using Version 2 (education-led) messaging. Identify and register for first Sussex networking event. Continue weekly LinkedIn content.</p>
+                </div>
+            </div>
 
-      return `
-        <div class="task-item ${isDone ? 'done-task' : ''}" id="task-${t.id}">
-          <div class="task-checkbox ${isDone ? 'checked' : ''}" onclick="toggleTask(${t.id})"></div>
-          <span class="task-name">${t.name}</span>
-          <div class="task-meta">
-            ${t.component ? `<span class="task-component-tag">${t.component}</span>` : ''}
-            ${t.date ? `<span class="task-date ${overdue ? 'overdue' : ''}">${overdue ? '⚠ ' : ''}${formatDate(t.date)}</span>` : ''}
-            <select class="task-status-select" onchange="updateTaskStatus(${t.id}, this.value)">
-              <option value="todo" ${t.status==='todo'?'selected':''}>To Do</option>
-              <option value="inprogress" ${t.status==='inprogress'?'selected':''}>In Progress</option>
-              <option value="done" ${t.status==='done'?'selected':''}>Done</option>
-            </select>
-            <button class="btn-delete" onclick="deleteTask(${t.id})" title="Remove task">✕</button>
-          </div>
-        </div>`;
-    }).join('');
-  }
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <div class="timeline-content">
+                    <h4>Day 30 — Review Checkpoint</h4>
+                    <p>Honest assessment of traction. Are warm contacts progressing? Is LinkedIn generating responses? If signals are weak, revisit messaging before continuing outreach. If engagement is positive, maintain course. This checkpoint is built in to avoid continuing ineffective activity through the full 90 days.</p>
+                    <ul>
+                        <li>If warm contacts are stalling: address the specific blocker directly</li>
+                        <li>If LinkedIn outreach is getting limited response: refine messaging based on real feedback</li>
+                        <li>If needed: widen outreach to larger firms and female-led practices identified in the bias review</li>
+                    </ul>
+                </div>
+            </div>
 
-  function toggleTask(id) {
-    const task = tasks.find(t => t.id === id);
-    if (task) {
-      task.status = task.status === 'done' ? 'todo' : 'done';
-      renderTasks();
-      updateMilestoneProgress();
-    }
-  }
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <div class="timeline-content">
+                    <h4>Days 31–60 — Conversion Focus</h4>
+                    <p>Target period for confirming first paid engagement (45–60 day goal). Attend first Sussex networking event. Continue cold outreach at steady pace. Move second warm contact into active proposal conversation. Begin gathering any early case study material from first engagement if confirmed.</p>
+                </div>
+            </div>
 
-  function updateTaskStatus(id, value) {
-    const task = tasks.find(t => t.id === id);
-    if (task) {
-      task.status = value;
-      renderTasks();
-      updateMilestoneProgress();
-    }
-  }
+            <div class="timeline-item">
+                <div class="timeline-dot">5</div>
+                <div class="timeline-content">
+                    <h4>Days 61–90 — Scale and Learn</h4>
+                    <p>With first engagement underway, use the experience to refine the process and strengthen physical evidence (case study, testimonial). Broaden LinkedIn outreach to UK-wide prospects using Version 3 (awareness-led) messaging for future threshold audiences. Assess whether continued LinkedIn Premium investment is justified based on results to date.</p>
+                </div>
+            </div>
 
-  function deleteTask(id) {
-    tasks = tasks.filter(t => t.id !== id);
-    renderTasks();
-    updateMilestoneProgress();
-  }
+        </div>
+    </section>
 
-  function formatDate(dateStr) {
-    const d = new Date(dateStr + 'T00:00:00');
-    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-  }
+    <!-- METRICS -->
+    <section id="metrics">
+        <div class="section-header">
+            <div class="section-label">Measuring Success</div>
+            <h2>Success Metrics</h2>
+            <p>Realistic targets for the 90-day period</p>
+        </div>
 
-  // ── INIT ──────────────────────────────────────────────────────────────────
-  renderComponents();
-  updateMilestoneProgress();
-</script>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">1</div>
+                <div class="metric-label">Confirmed Paid Engagement</div>
+                <p>At least one accountancy practice confirmed as a paying client within 45–60 days. Primary target is the warmer of the two existing contacts.</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">1</div>
+                <div class="metric-label">Active Proposal Conversation</div>
+                <p>Second warm contact in active discussion with a proposal or scoping conversation underway by day 60.</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">3+</div>
+                <div class="metric-label">New Prospect Connections</div>
+                <p>At least three new accountancy practice connections established through LinkedIn or networking with meaningful engagement initiated.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <h4>Contingency: If Targets Are Not Met at Day 30</h4>
+            <p>If warm contacts are not progressing and cold outreach is generating minimal response by day 30, the plan will adapt rather than continue unchanged. Options include refining messaging based on real responses, widening the audience profile to larger practices and female-led firms, and considering whether a free initial consultation offer would reduce the barrier to a first conversation. The goal is learning from the market quickly, not optimistic persistence.</p>
+        </div>
+    </section>
+
+    <!-- ETHICS -->
+    <section id="ethics">
+        <div class="section-header">
+            <div class="section-label">Responsible Practice</div>
+            <h2>Ethics &amp; Responsible Use</h2>
+            <p>Data privacy, AI use, and transparency decisions</p>
+        </div>
+
+        <div class="ethics-grid">
+
+            <div class="ethics-card">
+                <h4>Data Privacy</h4>
+                <p>All information shared with AI tools during this project has been limited to client profile types, business scenarios, and market characteristics. No specific accountant names, practice details, client information, or commercially sensitive data has been entered into any AI platform. This approach naturally anonymises inputs while still enabling AI to provide genuinely useful support.</p>
+            </div>
+
+            <div class="ethics-card">
+                <h4>Transparency with Contacts</h4>
+                <p>Both warm contacts will be informed that a formal marketing plan and business approach is being developed, and that our conversations have informed the understanding of the market need. No specific details of those discussions are included in any documentation shared externally without their knowledge. This transparency is also expected to reinforce professionalism and seriousness of intent.</p>
+            </div>
+
+            <div class="ethics-card">
+                <h4>Bias Review</h4>
+                <p>The initial plan was reviewed for bias risks before drafting. Two corrections were made: the target audience was broadened beyond the small independent practice profile to include larger firms and female-led practices; and messaging was structured in three versions to avoid applying urgency pressure indiscriminately across audiences at different stages of MTD awareness.</p>
+            </div>
+
+            <div class="ethics-card">
+                <h4>Accuracy and Verification</h4>
+                <p>All figures in this plan, including MTD deadlines, LinkedIn pricing, and networking event costs, have been verified against current sources. AI-suggested costs were checked before inclusion rather than accepted at face value. Marketing claims in outreach messaging will only reference facts that can be supported. No unverified market size statistics or conversion rate claims are included in this plan.</p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <h2>Michele Archer</h2>
+    <p>Getting businesses MTD-ready, seamlessly. &nbsp;·&nbsp; Sussex &amp; UK-Wide &nbsp;·&nbsp; 2026</p>
+</footer>
+
 </body>
 </html>
