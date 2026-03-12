@@ -1,817 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michele Archer – MTD Compliance Marketing Plan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary:    #2A9D8F;
-            --secondary:  #7FC8A9;
-            --accent:     #E76F51;
-            --bg:         #F4F1DE;
-            --white:      #ffffff;
-            --text:       #1a1a1a;
-            --text-muted: #5a5a5a;
-            --border:     #d8d4c0;
-            --light-teal: rgba(42,157,143,0.08);
-            --light-accent: rgba(231,111,81,0.10);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Action Plan | Michele Archer Bookkeeping</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #2A9D8F;
+    --teal-dark: #1f7a6e;
+    --sage: #7FC8A9;
+    --sage-light: #b3dfc9;
+    --terracotta: #E76F51;
+    --terracotta-dark: #c45a3e;
+    --cream: #F4F1DE;
+    --cream-dark: #ebe7cc;
+    --ink: #1a1816;
+    --stone: #5a5550;
+    --muted: #8a8480;
+    --white: #ffffff;
+    --card-bg: rgba(255,255,255,0.85);
+    --shadow: 0 2px 16px rgba(42,157,143,0.10);
+    --radius: 14px;
+  }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 17px;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* ── HEADER ── */
-        header {
-            background: var(--primary);
-            color: var(--white);
-            padding: 70px 60px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -40px; right: -40px;
-            width: 220px; height: 220px;
-            border-radius: 50%;
-            background: rgba(127,200,169,0.18);
-        }
-        header .label {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--secondary);
-            margin-bottom: 14px;
-        }
-        header h1 {
-            font-size: 52px;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            margin-bottom: 10px;
-            line-height: 1.1;
-        }
-        header .strapline {
-            font-style: italic;
-            font-size: 22px;
-            color: rgba(255,255,255,0.82);
-            margin-bottom: 28px;
-        }
-        header .meta {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 12px;
-            color: rgba(255,255,255,0.55);
-            letter-spacing: 0.08em;
-        }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
 
-        /* ── NAV ── */
-        nav {
-            position: sticky;
-            top: 0;
-            background: var(--white);
-            border-bottom: 2px solid var(--primary);
-            padding: 14px 60px;
-            z-index: 100;
-            overflow-x: auto;
-        }
-        nav ul { display: flex; gap: 32px; list-style: none; white-space: nowrap; }
-        nav a {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--primary); }
+  /* HEADER */
+  header {
+    background: var(--teal);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(127,200,169,0.18);
+    pointer-events: none;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50px; left: -30px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 300;
+  }
 
-        /* ── MAIN ── */
-        main { max-width: 1100px; margin: 0 auto; padding: 60px 60px 80px; }
+  /* OVERALL PROGRESS */
+  .overall-progress-section {
+    background: var(--white);
+    margin: 0 24px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 22px 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+  }
+  .overall-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .overall-label span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+  .overall-label strong {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+  .progress-track {
+    background: var(--cream-dark);
+    border-radius: 100px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--terracotta), #f4945a);
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+    width: 0%;
+  }
 
-        /* ── SECTION ── */
-        section { margin-bottom: 72px; }
-        .section-header {
-            margin-bottom: 36px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--primary);
-        }
-        .section-label {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-        .section-header h2 {
-            font-size: 34px;
-            font-weight: 400;
-            color: var(--primary);
-        }
-        .section-header p {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin-top: 6px;
-            font-family: 'Libre Franklin', sans-serif;
-        }
+  /* MAIN LAYOUT */
+  main { padding: 0 24px; }
 
-        /* ── VALUE PROPOSITION HERO ── */
-        .value-prop {
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 8px;
-            padding: 48px 52px;
-            margin-bottom: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-        .value-prop::before {
-            content: '"';
-            position: absolute;
-            top: -20px; left: 30px;
-            font-size: 200px;
-            font-family: 'Cormorant Garamond', serif;
-            color: rgba(255,255,255,0.07);
-            line-height: 1;
-        }
-        .value-prop p {
-            font-size: 26px;
-            font-style: italic;
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-        }
-        .value-prop .attribution {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--secondary);
-            margin-top: 20px;
-        }
+  /* SECTION LABELS */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 14px;
+    margin-top: 28px;
+    padding-left: 2px;
+  }
 
-        /* ── INTENT BLOCK ── */
-        .intent-block {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--primary);
-            border-radius: 6px;
-            padding: 32px 36px;
-            margin-bottom: 36px;
-        }
-        .intent-block h3 {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-        .intent-block p { font-size: 17px; line-height: 1.75; }
+  /* MILESTONE CARDS */
+  .milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 700px) {
+    .milestones-grid { grid-template-columns: 1fr; }
+  }
 
-        /* ── 7PS GRID ── */
-        .ps-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-        .ps-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 28px 32px;
-            transition: box-shadow 0.2s;
-        }
-        .ps-card:hover { box-shadow: 0 4px 20px rgba(42,157,143,0.12); }
-        .ps-card .p-label {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 6px;
-        }
-        .ps-card h3 {
-            font-size: 22px;
-            font-weight: 500;
-            color: var(--primary);
-            margin-bottom: 14px;
-        }
-        .ps-card p { font-size: 16px; line-height: 1.7; color: var(--text); }
-        .ps-card ul { padding-left: 18px; margin-top: 10px; }
-        .ps-card li { font-size: 15px; line-height: 1.7; margin-bottom: 4px; }
+  .milestone-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 22px 20px 18px;
+    box-shadow: var(--shadow);
+    border-top: 3px solid var(--teal);
+    transition: box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .milestone-card.complete {
+    border-top-color: var(--sage);
+    background: rgba(127,200,169,0.10);
+  }
+  .milestone-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .milestone-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .milestone-date {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .m-progress-track {
+    background: var(--cream-dark);
+    border-radius: 100px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .m-progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--teal), var(--sage));
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+    width: 0%;
+  }
+  .m-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .celebrate-msg {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--teal-dark);
+    font-weight: 500;
+    background: rgba(127,200,169,0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .milestone-card.complete .celebrate-msg { display: block; }
+  .milestone-card.complete .milestone-num { color: var(--sage); }
 
-        /* ── MESSAGING VERSIONS ── */
-        .messaging-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 8px;
-        }
-        .message-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-top: 3px solid var(--primary);
-            border-radius: 6px;
-            padding: 24px 26px;
-        }
-        .message-card.accent-top { border-top-color: var(--accent); }
-        .message-card.secondary-top { border-top-color: var(--secondary); }
-        .message-card .msg-label {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-        .message-card h4 { font-size: 18px; font-weight: 500; color: var(--primary); margin-bottom: 10px; }
-        .message-card p { font-size: 15px; line-height: 1.65; }
+  /* WEEK SECTIONS */
+  .week-block {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px 14px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--cream-dark);
+    transition: background 0.15s;
+  }
+  .week-header:hover { background: rgba(42,157,143,0.04); }
+  .week-header-left h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .week-header-left span {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .week-badge {
+    background: var(--teal);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .week-badge.done { background: var(--sage); }
 
-        /* ── BUDGET TABLE ── */
-        .budget-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            margin-bottom: 24px;
-        }
-        .budget-table thead { background: var(--primary); color: var(--white); }
-        .budget-table th {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 16px 20px;
-            text-align: left;
-        }
-        .budget-table td {
-            padding: 16px 20px;
-            font-size: 15px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-        .budget-table tr:last-child td { border-bottom: none; }
-        .budget-table tr:nth-child(even) td { background: var(--light-teal); }
-        .budget-table .amount {
-            font-family: 'Libre Franklin', sans-serif;
-            font-weight: 600;
-            color: var(--primary);
-            white-space: nowrap;
-        }
-        .budget-table .pct {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .budget-total {
-            background: var(--primary);
-            color: var(--white);
-            padding: 20px 24px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .budget-total span {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 13px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .budget-total strong {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 22px;
-        }
+  .week-tasks {
+    padding: 8px 22px 14px;
+  }
 
-        /* ── TIMELINE ── */
-        .timeline { display: flex; flex-direction: column; gap: 0; }
-        .timeline-item {
-            display: flex;
-            gap: 28px;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 19px;
-            top: 44px;
-            bottom: -20px;
-            width: 2px;
-            background: var(--border);
-        }
-        .timeline-item:last-child::before { display: none; }
-        .timeline-dot {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            flex-shrink: 0;
-            margin-top: 4px;
-        }
-        .timeline-content {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 22px 28px;
-            margin-bottom: 20px;
-            flex: 1;
-        }
-        .timeline-content h4 {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-        .timeline-content p { font-size: 15px; line-height: 1.7; }
-        .timeline-content ul { padding-left: 18px; margin-top: 8px; }
-        .timeline-content li { font-size: 15px; line-height: 1.7; margin-bottom: 4px; }
+  /* TASKS */
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .task-item:last-child { border-bottom: none; }
+  .task-item:hover { opacity: 0.85; }
 
-        /* ── SUCCESS METRICS ── */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .metric-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 28px 24px;
-            text-align: center;
-        }
-        .metric-card .metric-value {
-            font-size: 42px;
-            font-weight: 400;
-            color: var(--primary);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-        .metric-card .metric-label {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-        .metric-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .task-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--sage);
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s, border-color 0.18s;
+    background: transparent;
+  }
+  .task-item.done .task-check {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+  .task-check svg {
+    opacity: 0;
+    transition: opacity 0.18s;
+  }
+  .task-item.done .task-check svg { opacity: 1; }
 
-        /* ── CALLOUT ── */
-        .callout {
-            background: var(--light-accent);
-            border: 1px solid rgba(231,111,81,0.25);
-            border-left: 4px solid var(--accent);
-            border-radius: 6px;
-            padding: 24px 28px;
-            margin-top: 28px;
-        }
-        .callout h4 {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-        .callout p { font-size: 15px; line-height: 1.7; }
+  .task-text {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+    transition: color 0.18s, text-decoration 0.18s;
+    padding-top: 1px;
+  }
+  .task-item.done .task-text {
+    color: var(--muted);
+    text-decoration: line-through;
+  }
 
-        /* ── ETHICS BLOCK ── */
-        .ethics-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        .ethics-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 26px 28px;
-        }
-        .ethics-card h4 {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-        .ethics-card p { font-size: 15px; line-height: 1.7; }
-
-        /* ── FOOTER ── */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 50px 60px;
-            text-align: center;
-        }
-        footer h2 {
-            font-size: 28px;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-        footer p {
-            font-family: 'Libre Franklin', sans-serif;
-            font-size: 12px;
-            color: rgba(255,255,255,0.55);
-            letter-spacing: 0.08em;
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .ps-grid, .messaging-grid, .metrics-grid, .ethics-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 640px) {
-            header, main { padding: 36px 24px; }
-            nav { padding: 12px 24px; }
-            header h1 { font-size: 36px; }
-        }
-    </style>
+  /* FOOTER */
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 32px 24px 0;
+    letter-spacing: 0.04em;
+  }
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-    <div class="label">90-Day Marketing Plan &nbsp;·&nbsp; Freelance Track &nbsp;·&nbsp; 2026</div>
-    <h1>Michele Archer</h1>
-    <p class="strapline">Getting businesses MTD-ready, seamlessly.</p>
-    <p class="meta">MTD Compliance Support Specialist &nbsp;·&nbsp; Sussex &amp; UK-Wide &nbsp;·&nbsp; February 2026</p>
+  <div class="header-label">AI for Business Bootcamp · Freelancer Track · 2026</div>
+  <h1>90-Day Action Plan</h1>
+  <p>Michele Archer Bookkeeping &nbsp;·&nbsp; Starting 16 March 2026</p>
 </header>
 
-<!-- NAV -->
-<nav>
-    <ul>
-        <li><a href="#intent">Intent</a></li>
-        <li><a href="#framework">Framework</a></li>
-        <li><a href="#seven-ps">The 7Ps</a></li>
-        <li><a href="#messaging">Messaging</a></li>
-        <li><a href="#budget">Budget</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#metrics">Success Metrics</a></li>
-        <li><a href="#ethics">Ethics</a></li>
-    </ul>
-</nav>
+<div class="overall-progress-section">
+  <div class="overall-label">
+    <span>Overall Progress</span>
+    <strong id="overallPct">0%</strong>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="overallBar"></div>
+  </div>
+</div>
 
 <main>
 
-    <!-- INTENT -->
-    <section id="intent">
-        <div class="section-header">
-            <div class="section-label">Plan Foundation</div>
-            <h2>Intent &amp; Context</h2>
-            <p>What this plan is for and why now</p>
-        </div>
+  <p class="section-label">🎯 Milestones</p>
+  <div class="milestones-grid">
 
-        <div class="value-prop">
-            <p>Your clients get MTD compliant. You get your time back while I plan, organise and coordinate the compliance setup process from start to finish.</p>
-            <div class="attribution">Core Value Proposition — Michele Archer</div>
-        </div>
+    <div class="milestone-card" id="m1">
+      <div class="milestone-num">Milestone 1</div>
+      <div class="milestone-title">Complete Capstone Submission</div>
+      <div class="milestone-date">Target: 22 March 2026</div>
+      <div class="m-progress-track"><div class="m-progress-fill" id="m1bar"></div></div>
+      <div class="m-progress-label"><span>Progress</span><span id="m1pct">0%</span></div>
+      <div class="celebrate-msg">✅ Capstone submitted. Your business is real now.</div>
+    </div>
 
-        <div class="intent-block">
-            <h3>Plan Intent</h3>
-            <p>This is a 90-day lead generation marketing plan for a freelance MTD compliance support service targeting small accountancy practices, initially in Sussex with a view to scaling UK-wide. The plan is time-sensitive, with HMRC's MTD for sole traders deadline of April 2026 creating genuine urgency for accountancy practices with non-compliant clients. The goal is to convert one warm contact into a confirmed paid engagement within 45–60 days, while moving a second contact into active conversation. Longer-term visibility will be built through organic LinkedIn outreach and local networking.</p>
-        </div>
+    <div class="milestone-card" id="m2">
+      <div class="milestone-num">Milestone 2</div>
+      <div class="milestone-title">LinkedIn Profile Live and Active</div>
+      <div class="milestone-date">Target: 12 April 2026</div>
+      <div class="m-progress-track"><div class="m-progress-fill" id="m2bar"></div></div>
+      <div class="m-progress-label"><span>Progress</span><span id="m2pct">0%</span></div>
+      <div class="celebrate-msg">✅ You're visible. Clients can find you now.</div>
+    </div>
 
-        <div class="callout">
-            <h4>Why Now</h4>
-            <p>HMRC's Making Tax Digital rollout creates a hard compliance deadline for sole traders. Accountancy practices face the challenge of managing this for their clients without the internal resource to do it profitably. This plan positions Michele Archer as the specialist who removes that burden entirely, allowing practices to protect client relationships without diverting fee-generating capacity.</p>
-        </div>
-    </section>
+    <div class="milestone-card" id="m3">
+      <div class="milestone-num">Milestone 3</div>
+      <div class="milestone-title">Secure First New Client</div>
+      <div class="milestone-date">Target: 14 June 2026</div>
+      <div class="m-progress-track"><div class="m-progress-fill" id="m3bar"></div></div>
+      <div class="m-progress-label"><span>Progress</span><span id="m3pct">0%</span></div>
+      <div class="celebrate-msg">✅ First client secured. Michele Archer Bookkeeping is open for business.</div>
+    </div>
 
-    <!-- FRAMEWORK -->
-    <section id="framework">
-        <div class="section-header">
-            <div class="section-label">Strategic Approach</div>
-            <h2>Framework Selection</h2>
-            <p>Why the 7Ps and what was considered</p>
-        </div>
+  </div>
 
-        <div class="intent-block">
-            <h3>Selected Framework: The 7Ps Marketing Mix</h3>
-            <p>The 7Ps framework was selected as the most appropriate structure for this plan. As a service business, the extended marketing mix (Product, Price, Place, Promotion, People, Process, Physical Evidence) captures both the strategic and operational dimensions of the offer. It is broad enough to be comprehensive without being so complex that it produces shallow coverage across too many areas.</p>
-        </div>
+  <p class="section-label">📋 Weekly Tasks</p>
 
-        <div class="ps-grid">
-            <div class="ps-card">
-                <div class="p-label">Considered but rejected</div>
-                <h3>STP Model</h3>
-                <p>Useful for audience definition but limited to segmentation and positioning. Does not address service delivery elements, which are a key part of the competitive advantage in a hands-on compliance support role.</p>
-            </div>
-            <div class="ps-card">
-                <div class="p-label">Considered but rejected</div>
-                <h3>SOSTAC</h3>
-                <p>A comprehensive planning framework well suited to larger campaigns. Too extensive for a focused 90-day plan with a restricted budget. The risk of producing shallow work across too many areas outweighed the benefit of its structure.</p>
-            </div>
-        </div>
-    </section>
+  <!-- WEEK 1 -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek('w1')">
+      <div class="week-header-left">
+        <h3>Week 1 &nbsp;·&nbsp; Capstone &amp; Launch Prep</h3>
+        <span>16 – 22 March 2026</span>
+      </div>
+      <div class="week-badge" id="w1badge">0 / 4</div>
+    </div>
+    <div class="week-tasks" id="w1tasks">
+      <div class="task-item" data-week="w1" data-milestone="m1" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Submit Capstone to Google Classroom</span>
+      </div>
+      <div class="task-item" data-week="w1" data-milestone="m1" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Confirm Replit link is working and shareable</span>
+      </div>
+      <div class="task-item" data-week="w1" data-milestone="m2" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Finalise LinkedIn headline and summary copy</span>
+      </div>
+      <div class="task-item" data-week="w1" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Set up Michele Archer Bookkeeping business email</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- 7PS -->
-    <section id="seven-ps">
-        <div class="section-header">
-            <div class="section-label">Marketing Mix</div>
-            <h2>The 7Ps</h2>
-            <p>How the service is positioned and delivered across all dimensions</p>
-        </div>
+  <!-- WEEK 2 -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek('w2')">
+      <div class="week-header-left">
+        <h3>Week 2 &nbsp;·&nbsp; LinkedIn &amp; Visibility</h3>
+        <span>23 – 29 March 2026</span>
+      </div>
+      <div class="week-badge" id="w2badge">0 / 4</div>
+    </div>
+    <div class="week-tasks" id="w2tasks">
+      <div class="task-item" data-week="w2" data-milestone="m2" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Publish LinkedIn profile (open to work, niche clear)</span>
+      </div>
+      <div class="task-item" data-week="w2" data-milestone="m2" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Write and post first LinkedIn article (MTD and landlords)</span>
+      </div>
+      <div class="task-item" data-week="w2" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Identify 10 target accountancy practices for referral outreach</span>
+      </div>
+      <div class="task-item" data-week="w2" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Research local landlord networking events in London</span>
+      </div>
+    </div>
+  </div>
 
-        <div class="ps-grid">
+  <!-- WEEKS 3-4 -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek('w3')">
+      <div class="week-header-left">
+        <h3>Weeks 3–4 &nbsp;·&nbsp; Outreach Begins</h3>
+        <span>30 March – 12 April 2026</span>
+      </div>
+      <div class="week-badge" id="w3badge">0 / 4</div>
+    </div>
+    <div class="week-tasks" id="w3tasks">
+      <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Send introductory emails to 5 accountant contacts</span>
+      </div>
+      <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Attend one landlord or property investor networking event</span>
+      </div>
+      <div class="task-item" data-week="w3" data-milestone="m2" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Post second LinkedIn article</span>
+      </div>
+      <div class="task-item" data-week="w3" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Follow up on any accountant outreach from Week 3</span>
+      </div>
+    </div>
+  </div>
 
-            <div class="ps-card">
-                <div class="p-label">P1</div>
-                <h3>Product</h3>
-                <p>A freelance MTD compliance coordination service for accountancy practices. The service covers planning, organising, and coordinating the MTD setup process for sole trader clients on behalf of the practice. The accountant retains oversight while Michele manages the end-to-end compliance journey, freeing the practice from the administrative burden without losing control of the client relationship.</p>
-            </div>
+  <!-- MONTH 2 -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek('w4')">
+      <div class="week-header-left">
+        <h3>Month 2 &nbsp;·&nbsp; Build Pipeline</h3>
+        <span>13 April – 11 May 2026</span>
+      </div>
+      <div class="week-badge" id="w4badge">0 / 4</div>
+    </div>
+    <div class="week-tasks" id="w4tasks">
+      <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Send referral partnership proposal to 3 accountancy practices</span>
+      </div>
+      <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Attend second networking event</span>
+      </div>
+      <div class="task-item" data-week="w4" data-milestone="m2" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Post two more LinkedIn articles</span>
+      </div>
+      <div class="task-item" data-week="w4" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Get at least 3 discovery calls booked</span>
+      </div>
+    </div>
+  </div>
 
-            <div class="ps-card">
-                <div class="p-label">P2</div>
-                <h3>Price</h3>
-                <p>Pricing will be structured as a per-client engagement fee or a monthly retained arrangement depending on the volume of clients a practice needs to process. Specific pricing will be developed in discussion with the first confirmed client to ensure it reflects genuine value and is commercially viable for both parties. The pricing model will be positioned as a cost-effective alternative to the practice absorbing the time burden internally.</p>
-            </div>
-
-            <div class="ps-card">
-                <div class="p-label">P3</div>
-                <h3>Place</h3>
-                <p>Primary channels for the 90-day period are:</p>
-                <ul>
-                    <li>Direct outreach to two warm Sussex-based contacts</li>
-                    <li>LinkedIn outreach targeting accountancy practices in Sussex and beyond</li>
-                    <li>Local professional networking events in Sussex</li>
-                    <li>Organic LinkedIn content to build broader UK visibility</li>
-                </ul>
-            </div>
-
-            <div class="ps-card">
-                <div class="p-label">P4</div>
-                <h3>Promotion</h3>
-                <p>Three distinct messaging approaches aligned to audience temperature (see Messaging section). Promotion is entirely organic and relationship-led within the 90-day plan, supported by a small LinkedIn investment. Content strategy uses MTD deadline awareness as a natural hook, positioning Michele as an informed, reliable specialist rather than a salesperson.</p>
-            </div>
-
-            <div class="ps-card">
-                <div class="p-label">P5</div>
-                <h3>People</h3>
-                <p>Michele Archer brings a background in organisation, coordination, and reliable execution. Her operating style — plan-first, steady consistent delivery — directly mirrors the reassurance an accountant needs when handing off a compliance process. The service is personal, relationship-led, and built on trust rather than scale.</p>
-            </div>
-
-            <div class="ps-card">
-                <div class="p-label">P6</div>
-                <h3>Process</h3>
-                <p>The handoff process will be clearly defined for each practice engagement, covering how client information is received, how progress is communicated, and how completion is confirmed. A clear process reduces the perceived risk for the accountant and demonstrates professionalism from the first conversation. The process will be documented and refined after the first client engagement.</p>
-            </div>
-
-        </div>
-
-        <!-- P7 full width -->
-        <div class="ps-card" style="margin-top: 24px;">
-            <div class="p-label">P7</div>
-            <h3>Physical Evidence</h3>
-            <p>In a service business, physical evidence is what reassures a prospective client that you are credible before they have direct experience of your work. For this plan, physical evidence comprises: an optimised LinkedIn profile clearly communicating the MTD compliance specialism; this marketing plan as a demonstration of structured thinking and professionalism; and, once the first engagement is complete, a brief case study or testimonial to support further outreach. The personal brand page serves as a digital anchor for all outreach activity.</p>
-        </div>
-
-    </section>
-
-    <!-- MESSAGING -->
-    <section id="messaging">
-        <div class="section-header">
-            <div class="section-label">Communication Strategy</div>
-            <h2>Messaging Versions</h2>
-            <p>Three approaches aligned to audience temperature and MTD timeline relevance</p>
-        </div>
-
-        <div class="messaging-grid">
-
-            <div class="message-card accent-top">
-                <div class="msg-label">Version 1 — Warm Contacts</div>
-                <h4>Urgency-Led</h4>
-                <p>For the two existing warm contacts where a relationship already exists and the April 2026 deadline is immediately relevant. Messaging acknowledges the known challenge directly and moves quickly to a practical conversation about working together. Tone is confident and collegial, not salesy.</p>
-            </div>
-
-            <div class="message-card">
-                <div class="msg-label">Version 2 — Cold Prospects, Near-Term</div>
-                <h4>Education-Led</h4>
-                <p>For accountancy practices not yet engaged but who have sole trader clients affected by the April 2026 deadline. Messaging leads with value and awareness rather than urgency pressure. Positions Michele as an informed specialist worth a conversation before the deadline crunch hits.</p>
-            </div>
-
-            <div class="message-card secondary-top">
-                <div class="msg-label">Version 3 — Future Threshold Prospects</div>
-                <h4>Awareness-Led</h4>
-                <p>For practices whose clients fall under later MTD implementation thresholds. No immediate urgency but a clear opportunity to build visibility and plant seeds for future engagement. Content positions Michele as the go-to name for MTD compliance coordination when the next wave of deadlines becomes relevant.</p>
-            </div>
-
-        </div>
-
-        <div class="callout">
-            <h4>Bias Note</h4>
-            <p>Messaging has been deliberately designed to avoid assumptions about practice size, ownership profile, or geography. Outreach will include practices of varying scale and demographic profile, including female-led practices and larger firms with proportionally higher compliance burdens, not only the small independent practice profile that informed the initial plan.</p>
-        </div>
-    </section>
-
-    <!-- BUDGET -->
-    <section id="budget">
-        <div class="section-header">
-            <div class="section-label">Financial Planning</div>
-            <h2>Budget</h2>
-            <p>£300 total allocation over 90 days with reasoning for every decision</p>
-        </div>
-
-        <table class="budget-table">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Allocation</th>
-                    <th>% of Budget</th>
-                    <th>Reasoning</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>LinkedIn Premium (Sales Navigator Basic)</strong></td>
-                    <td class="amount">£90</td>
-                    <td class="pct">30%</td>
-                    <td>LinkedIn is where accountants and practice managers are professionally active. A one-month trial of Sales Navigator enables targeted outreach to practice owners and decision-makers beyond existing connections. The investment is deliberately limited to one month to test traction before committing further.</td>
-                </tr>
-                <tr>
-                    <td><strong>AI Platform Subscription</strong></td>
-                    <td class="amount">£60</td>
-                    <td class="pct">20%</td>
-                    <td>Two months of an AI platform subscription to support content drafting, outreach message refinement, and process documentation. AI assistance increases the quality and consistency of outputs without requiring additional time investment. Cost verified against current platform pricing.</td>
-                </tr>
-                <tr>
-                    <td><strong>Local Networking Events (Sussex)</strong></td>
-                    <td class="amount">£100</td>
-                    <td class="pct">33%</td>
-                    <td>Two to three local professional networking events in Sussex over the 90-day period. Face-to-face relationship building is the most direct route to converting warm contacts and establishing credibility with new prospects. Sussex proximity reduces travel cost. Specific events to be verified for relevance before booking.</td>
-                </tr>
-                <tr>
-                    <td><strong>Contingency Reserve</strong></td>
-                    <td class="amount">£50</td>
-                    <td class="pct">17%</td>
-                    <td>A small contingency held back for unexpected opportunities, such as a relevant event, a professional membership fee, or a printed one-pager for in-person meetings. Not committed in advance, deployed only if a clear opportunity arises.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="budget-total">
-            <span>Total 90-Day Budget</span>
-            <strong>£300</strong>
-        </div>
-
-        <div class="callout" style="margin-top: 24px;">
-            <h4>Budget Rationale</h4>
-            <p>The budget reflects the reality of marketing an unvalidated service offer with restricted income. The priority is testing demand at low cost rather than committing significant spend before market response is understood. The largest single allocation (networking) reflects the judgment that relationship-led outreach will outperform digital advertising at this stage of the business. All figures have been verified against current pricing. Any AI-suggested costs were checked before inclusion.</p>
-        </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section id="timeline">
-        <div class="section-header">
-            <div class="section-label">90-Day Action Plan</div>
-            <h2>Timeline</h2>
-            <p>Phased activity from February to May 2026</p>
-        </div>
-
-        <div class="timeline">
-
-            <div class="timeline-item">
-                <div class="timeline-dot">1</div>
-                <div class="timeline-content">
-                    <h4>Days 1–14 — Foundation</h4>
-                    <p>Optimise LinkedIn profile to clearly communicate MTD compliance specialism. Draft outreach messages using Version 1 (urgency-led) for both warm contacts. Make direct contact with warmer lead and open a practical conversation about working together. Begin publishing organic LinkedIn content using MTD deadline awareness as the primary hook.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot">2</div>
-                <div class="timeline-content">
-                    <h4>Days 15–30 — Outreach</h4>
-                    <p>Follow up with warm contacts and progress conversations toward a discovery call or proposal. Activate LinkedIn Sales Navigator for targeted cold outreach using Version 2 (education-led) messaging. Identify and register for first Sussex networking event. Continue weekly LinkedIn content.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot">3</div>
-                <div class="timeline-content">
-                    <h4>Day 30 — Review Checkpoint</h4>
-                    <p>Honest assessment of traction. Are warm contacts progressing? Is LinkedIn generating responses? If signals are weak, revisit messaging before continuing outreach. If engagement is positive, maintain course. This checkpoint is built in to avoid continuing ineffective activity through the full 90 days.</p>
-                    <ul>
-                        <li>If warm contacts are stalling: address the specific blocker directly</li>
-                        <li>If LinkedIn outreach is getting limited response: refine messaging based on real feedback</li>
-                        <li>If needed: widen outreach to larger firms and female-led practices identified in the bias review</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot">4</div>
-                <div class="timeline-content">
-                    <h4>Days 31–60 — Conversion Focus</h4>
-                    <p>Target period for confirming first paid engagement (45–60 day goal). Attend first Sussex networking event. Continue cold outreach at steady pace. Move second warm contact into active proposal conversation. Begin gathering any early case study material from first engagement if confirmed.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot">5</div>
-                <div class="timeline-content">
-                    <h4>Days 61–90 — Scale and Learn</h4>
-                    <p>With first engagement underway, use the experience to refine the process and strengthen physical evidence (case study, testimonial). Broaden LinkedIn outreach to UK-wide prospects using Version 3 (awareness-led) messaging for future threshold audiences. Assess whether continued LinkedIn Premium investment is justified based on results to date.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- METRICS -->
-    <section id="metrics">
-        <div class="section-header">
-            <div class="section-label">Measuring Success</div>
-            <h2>Success Metrics</h2>
-            <p>Realistic targets for the 90-day period</p>
-        </div>
-
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-value">1</div>
-                <div class="metric-label">Confirmed Paid Engagement</div>
-                <p>At least one accountancy practice confirmed as a paying client within 45–60 days. Primary target is the warmer of the two existing contacts.</p>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value">1</div>
-                <div class="metric-label">Active Proposal Conversation</div>
-                <p>Second warm contact in active discussion with a proposal or scoping conversation underway by day 60.</p>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value">3+</div>
-                <div class="metric-label">New Prospect Connections</div>
-                <p>At least three new accountancy practice connections established through LinkedIn or networking with meaningful engagement initiated.</p>
-            </div>
-        </div>
-
-        <div class="callout">
-            <h4>Contingency: If Targets Are Not Met at Day 30</h4>
-            <p>If warm contacts are not progressing and cold outreach is generating minimal response by day 30, the plan will adapt rather than continue unchanged. Options include refining messaging based on real responses, widening the audience profile to larger practices and female-led firms, and considering whether a free initial consultation offer would reduce the barrier to a first conversation. The goal is learning from the market quickly, not optimistic persistence.</p>
-        </div>
-    </section>
-
-    <!-- ETHICS -->
-    <section id="ethics">
-        <div class="section-header">
-            <div class="section-label">Responsible Practice</div>
-            <h2>Ethics &amp; Responsible Use</h2>
-            <p>Data privacy, AI use, and transparency decisions</p>
-        </div>
-
-        <div class="ethics-grid">
-
-            <div class="ethics-card">
-                <h4>Data Privacy</h4>
-                <p>All information shared with AI tools during this project has been limited to client profile types, business scenarios, and market characteristics. No specific accountant names, practice details, client information, or commercially sensitive data has been entered into any AI platform. This approach naturally anonymises inputs while still enabling AI to provide genuinely useful support.</p>
-            </div>
-
-            <div class="ethics-card">
-                <h4>Transparency with Contacts</h4>
-                <p>Both warm contacts will be informed that a formal marketing plan and business approach is being developed, and that our conversations have informed the understanding of the market need. No specific details of those discussions are included in any documentation shared externally without their knowledge. This transparency is also expected to reinforce professionalism and seriousness of intent.</p>
-            </div>
-
-            <div class="ethics-card">
-                <h4>Bias Review</h4>
-                <p>The initial plan was reviewed for bias risks before drafting. Two corrections were made: the target audience was broadened beyond the small independent practice profile to include larger firms and female-led practices; and messaging was structured in three versions to avoid applying urgency pressure indiscriminately across audiences at different stages of MTD awareness.</p>
-            </div>
-
-            <div class="ethics-card">
-                <h4>Accuracy and Verification</h4>
-                <p>All figures in this plan, including MTD deadlines, LinkedIn pricing, and networking event costs, have been verified against current sources. AI-suggested costs were checked before inclusion rather than accepted at face value. Marketing claims in outreach messaging will only reference facts that can be supported. No unverified market size statistics or conversion rate claims are included in this plan.</p>
-            </div>
-
-        </div>
-    </section>
+  <!-- MONTH 3 -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek('w5')">
+      <div class="week-header-left">
+        <h3>Month 3 &nbsp;·&nbsp; Convert</h3>
+        <span>12 May – 14 June 2026</span>
+      </div>
+      <div class="week-badge" id="w5badge">0 / 4</div>
+    </div>
+    <div class="week-tasks" id="w5tasks">
+      <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Convert at least one discovery call to a paying client</span>
+      </div>
+      <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Finalise onboarding process and client welcome pack</span>
+      </div>
+      <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Review 90-day plan and set goals for next quarter</span>
+      </div>
+      <div class="task-item" data-week="w5" data-milestone="m3" onclick="toggleTask(this)">
+        <div class="task-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4.5 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="task-text">Celebrate 🎉</span>
+      </div>
+    </div>
+  </div>
 
 </main>
 
-<footer>
-    <h2>Michele Archer</h2>
-    <p>Getting businesses MTD-ready, seamlessly. &nbsp;·&nbsp; Sussex &amp; UK-Wide &nbsp;·&nbsp; 2026</p>
-</footer>
+<footer>Michele Archer Bookkeeping &nbsp;·&nbsp; AI for Business Bootcamp &nbsp;·&nbsp; 2026</footer>
 
+<script>
+  // Milestone task mapping
+  const milestoneMap = {
+    m1: { total: 0, done: 0 },
+    m2: { total: 0, done: 0 },
+    m3: { total: 0, done: 0 }
+  };
+
+  // Count tasks per milestone on load
+  document.querySelectorAll('.task-item[data-milestone]').forEach(task => {
+    const m = task.dataset.milestone;
+    if (milestoneMap[m]) milestoneMap[m].total++;
+  });
+
+  function toggleTask(el) {
+    el.classList.toggle('done');
+    update();
+  }
+
+  function toggleWeek(id) {
+    const tasks = document.getElementById(id + 'tasks');
+    tasks.style.display = tasks.style.display === 'none' ? '' : 'none';
+  }
+
+  function update() {
+    // Reset milestone counts
+    Object.keys(milestoneMap).forEach(k => { milestoneMap[k].done = 0; });
+
+    const allTasks = document.querySelectorAll('.task-item');
+    let totalDone = 0;
+
+    allTasks.forEach(task => {
+      const m = task.dataset.milestone;
+      const week = task.dataset.week;
+      if (task.classList.contains('done')) {
+        totalDone++;
+        if (m && milestoneMap[m]) milestoneMap[m].done++;
+      }
+    });
+
+    // Overall bar
+    const pct = Math.round((totalDone / allTasks.length) * 100);
+    document.getElementById('overallBar').style.width = pct + '%';
+    document.getElementById('overallPct').textContent = pct + '%';
+
+    // Milestone bars
+    ['m1','m2','m3'].forEach(m => {
+      const { total, done } = milestoneMap[m];
+      const mpct = total ? Math.round((done / total) * 100) : 0;
+      document.getElementById(m + 'bar').style.width = mpct + '%';
+      document.getElementById(m + 'pct').textContent = mpct + '%';
+      const card = document.getElementById(m);
+      if (mpct === 100) card.classList.add('complete');
+      else card.classList.remove('complete');
+    });
+
+    // Week badges
+    ['w1','w2','w3','w4','w5'].forEach(w => {
+      const weekTasks = document.querySelectorAll(`.task-item[data-week="${w}"]`);
+      const weekDone = [...weekTasks].filter(t => t.classList.contains('done')).length;
+      const badge = document.getElementById(w + 'badge');
+      badge.textContent = weekDone + ' / ' + weekTasks.length;
+      if (weekDone === weekTasks.length) badge.classList.add('done');
+      else badge.classList.remove('done');
+    });
+  }
+
+  update();
+</script>
 </body>
 </html>
